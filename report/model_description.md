@@ -82,6 +82,12 @@ The inventory cycle is divided into three intervals:
 - C(t1, T): total inventory cost in the crisp model
 - GC(t1, T): defuzzified total cost in the fuzzy model
 
+## Numerical Example Reference
+
+The numerical parameter values, reported crisp and fuzzy optimal results, and parameter-documentation notes are provided separately in `data/parameter_table.md`.
+
+This separation keeps the model description focused on the mathematical structure, while the parameter table stores the exact numerical inputs and reported outputs used for computational reproduction.
+
 ## Numerical Work Planned
 
 This repository will implement the numerical example and sensitivity analysis from the source paper.
