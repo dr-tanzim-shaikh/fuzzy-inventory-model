@@ -25,7 +25,9 @@ This creates a timeline inconsistency because the model formulation assumes the 
 - `[tm, t1]`
 - `[t1, T]`
 
-Therefore, the model structure requires `tm < t1 < T`.
+Therefore, the model structure requires:
+
+`tm < t1 < T`
 
 However, if `tm = 1.25` and `t1 = 0.9680`, then `tm > t1`, which contradicts the model formulation.
 
