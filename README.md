@@ -39,6 +39,7 @@ Short written reports are available in:
 
 - `report/sensitivity_analysis_summary.md`
 - `report/sensitivity_interpretation.md`
+- - `report/crisp_model_results_summary.md`
 
 ## Reproducibility
 
@@ -66,10 +67,11 @@ source("code/sensitivity_analysis_data.R")
 - Generated sensitivity-analysis plots
 - Short sensitivity-analysis summary
 - Sensitivity-analysis interpretation
+- Crisp model cost-function implementation in R
+- Reported-vs-computed comparison for crisp model
 
 ## Remaining Planned Work
 
-- Implement the crisp cost function
 - Reproduce the numerical example computationally
 - Compare computed results with the reported paper results
 - Expand the written interpretation of sensitivity-analysis results
