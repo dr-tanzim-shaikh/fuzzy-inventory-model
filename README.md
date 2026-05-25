@@ -55,15 +55,21 @@ source("code/sensitivity_analysis_data.R")
 - Optimisation
 - Sensitivity Analysis
 
-## Planned Contents
+## Completed Work
 
 - Model description
 - Parameter table
-- Cost function implementation
-- Numerical example
-- Sensitivity analysis
-- Output plots
-- Short technical report
+- Sensitivity-analysis data entry in R
+- Generated CSV output tables
+- Generated sensitivity-analysis plots
+- Short sensitivity-analysis summary
+
+## Remaining Planned Work
+
+- Implement the crisp cost function
+- Reproduce the numerical example computationally
+- Compare computed results with the reported paper results
+- Expand the written interpretation of sensitivity-analysis results
 
 ## Tools
 
