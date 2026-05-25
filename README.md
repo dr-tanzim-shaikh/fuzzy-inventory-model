@@ -15,7 +15,8 @@ This repository currently includes:
 - R script for sensitivity-analysis data entry and plotting,
 - generated CSV output tables,
 - generated sensitivity-analysis plots,
-- short sensitivity-analysis summary.
+- short sensitivity-analysis summary,
+- sensitivity-analysis interpretation.
 
 ## Generated Outputs
 
@@ -64,6 +65,7 @@ source("code/sensitivity_analysis_data.R")
 - Generated CSV output tables
 - Generated sensitivity-analysis plots
 - Short sensitivity-analysis summary
+- Sensitivity-analysis interpretation
 
 ## Remaining Planned Work
 
@@ -75,8 +77,8 @@ source("code/sensitivity_analysis_data.R")
 ## Tools
 
 - R
-- Microsoft Excel
-- SPSS / MATLAB where relevant
+- GitHub
+- Markdown
 
 ## Author
 
