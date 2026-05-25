@@ -14,3 +14,17 @@ From the main repository folder, run:
 ```r
 source("code/sensitivity_analysis_data.R")
 source("code/crisp_model_cost_function.R")
+```
+
+## Outputs Generated
+
+Running `sensitivity_analysis_data.R` creates:
+
+- sensitivity-analysis CSV tables in `outputs/tables/`
+- sensitivity-analysis PNG plots in `outputs/plots/`
+
+Running `crisp_model_cost_function.R` creates:
+
+- `crisp_model_newton_iterations.csv`
+- `crisp_model_computed_result.csv`
+- `crisp_model_reported_vs_computed.csv`
