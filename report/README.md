@@ -9,3 +9,4 @@ This folder contains written documentation and interpretation files for the fuzz
 - `sensitivity_analysis_summary.md` — summary of generated sensitivity-analysis outputs
 - `sensitivity_interpretation.md` — interpretation of sensitivity-analysis results
 - `crisp_model_results_summary.md` — summary of the crisp model R implementation and reported-vs-computed comparison
+- `fuzzy_model_results_summary.md` — summary of the fuzzy model R implementation and reported-vs-computed comparison
