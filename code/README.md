@@ -13,3 +13,4 @@ From the main repository folder, run:
 
 ```r
 source("code/sensitivity_analysis_data.R")
+source("code/crisp_model_cost_function.R")
