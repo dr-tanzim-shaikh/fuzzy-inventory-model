@@ -5,5 +5,7 @@ This folder contains written documentation and interpretation files for the fuzz
 ## Files
 
 - `model_description.md` — conceptual description of the model
+- `computational_notes.md` — technical notes on modelling decisions and parameter discrepancies
 - `sensitivity_analysis_summary.md` — summary of generated sensitivity-analysis outputs
 - `sensitivity_interpretation.md` — interpretation of sensitivity-analysis results
+- `crisp_model_results_summary.md` — summary of the crisp model R implementation and reported-vs-computed comparison
