@@ -34,9 +34,10 @@ Sensitivity-analysis plot images are available in:
 
 ### Summary Report
 
-A short written summary is available in:
+Short written reports are available in:
 
-`report/sensitivity_analysis_summary.md`
+- `report/sensitivity_analysis_summary.md`
+- `report/sensitivity_interpretation.md`
 
 ## Reproducibility
 
