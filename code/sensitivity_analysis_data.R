@@ -2,13 +2,6 @@
 # Project: fuzzy-inventory-model
 # Purpose: Enter sensitivity analysis data from Shaikh & Gite (2024),
 # save CSV tables, and create basic plots.
-#
-# Source:
-# Shaikh, T. S., & Gite, S. P. (2024).
-# Fuzzy Inventory Model under Selling Price Dependent Demand and Variable
-# Deterioration with Fully Backlogged Shortages.
-# American Journal of Operations Research, 14, 87–103.
-# https://doi.org/10.4236/ajor.2024.142005
 
 # ------------------------------------------------------------
 # 1. Create output folders
@@ -87,16 +80,14 @@ write.csv(tm_data, "outputs/tables/sensitivity_tm.csv", row.names = FALSE)
 # ------------------------------------------------------------
 
 create_plots <- function(data, parameter_name) {
-  
   x <- data[[parameter_name]]
-  
-  # Plot 1: t1 and T
+
   png(
     filename = paste0("outputs/plots/", parameter_name, "_t1_T.png"),
     width = 800,
     height = 600
   )
-  
+
   matplot(
     x,
     data[, c("t1", "T")],
@@ -107,7 +98,7 @@ create_plots <- function(data, parameter_name) {
     ylab = "Time",
     main = paste("Effect of", parameter_name, "on t1 and T")
   )
-  
+
   legend(
     "topright",
     legend = c("t1", "T"),
@@ -115,16 +106,15 @@ create_plots <- function(data, parameter_name) {
     pch = 19,
     bty = "n"
   )
-  
+
   dev.off()
-  
-  # Plot 2: GC(t1, T) and Q
+
   png(
     filename = paste0("outputs/plots/", parameter_name, "_GC_Q.png"),
     width = 800,
     height = 600
   )
-  
+
   matplot(
     x,
     data[, c("GC_t1_T", "Q")],
@@ -135,7 +125,7 @@ create_plots <- function(data, parameter_name) {
     ylab = "Value",
     main = paste("Effect of", parameter_name, "on GC(t1,T) and Q")
   )
-  
+
   legend(
     "topright",
     legend = c("GC(t1,T)", "Q"),
@@ -143,7 +133,7 @@ create_plots <- function(data, parameter_name) {
     pch = 19,
     bty = "n"
   )
-  
+
   dev.off()
 }
 
