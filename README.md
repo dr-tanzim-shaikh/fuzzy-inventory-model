@@ -49,6 +49,7 @@ Short written reports are available in:
 - `report/sensitivity_interpretation.md`
 - `report/crisp_model_results_summary.md`
 - `report/fuzzy_model_results_summary.md`
+- `report/final_project_summary.md`
 
 ## Reproducibility
 
@@ -82,11 +83,11 @@ source("code/fuzzy_model_cost_function.R")
 - Reported-vs-computed comparison for crisp model
 - Fuzzy model cost-function implementation in R
 - Reported-vs-computed comparison for fuzzy model
+- Final technical project summary
 
 ## Remaining Planned Work
 
 - Expand the written interpretation of sensitivity-analysis results
-- Add a final technical project summary
 - Improve repository presentation for academic portfolio use
 
 ## Tools
