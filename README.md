@@ -104,6 +104,14 @@ Known source-documentation issues are recorded in `report/computational_notes.md
 - GitHub
 - Markdown
 
+## Citation
+
+This repository is based on:
+
+Shaikh, T. S., & Gite, S. P. (2024). Fuzzy Inventory Model under Selling Price Dependent Demand and Variable Deterioration with Fully Backlogged Shortages. *American Journal of Operations Research*, 14, 87–103. https://doi.org/10.4236/ajor.2024.142005
+
+If using this repository, please cite the original paper.
+
 ## Author
 
 Dr. Tanzim Shahabuddin Shaikh  
