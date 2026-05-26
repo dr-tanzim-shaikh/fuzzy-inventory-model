@@ -90,6 +90,14 @@ source("code/fuzzy_model_cost_function.R")
 - Expand the written interpretation of sensitivity-analysis results
 - Improve repository presentation for academic portfolio use
 
+## Limitations
+
+This repository is a computational reproduction and documentation project based on a published inventory model.
+
+The implementation focuses on reproducing reported numerical results, sensitivity-analysis tables, and generated plots. It does not claim to introduce a new inventory model.
+
+Known source-documentation issues are recorded in `report/computational_notes.md`.
+
 ## Tools
 
 - R
