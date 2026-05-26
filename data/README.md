@@ -8,4 +8,8 @@ This folder contains parameter and numerical-data documentation for the fuzzy in
 
 ## Note
 
-This folder stores documented model-input information. Generated CSV outputs are stored separately in `outputs/tables/`.
+This folder stores documented model-input information.
+
+Generated CSV outputs are stored separately in:
+
+`outputs/tables/`
