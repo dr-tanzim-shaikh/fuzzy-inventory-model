@@ -32,37 +32,47 @@ Sc <- 7
 # ------------------------------------------------------------
 
 crisp_model_values <- function(t1, T) {
-  
   q1 <- (((alpha / (s^beta)) * exp(-gamma * (tm^lambda))) *
-           (t1 - tm + ((gamma / (lambda + 1)) *
-                         ((t1^(lambda + 1)) - (tm^(lambda + 1)))))) +
+    (
+      t1 - tm +
+        ((gamma / (lambda + 1)) *
+          ((t1^(lambda + 1)) - (tm^(lambda + 1))))
+    )) +
     ((alpha / (s^beta)) * tm)
-  
-  # In the MATLAB code, q2 is negative because it is based on the integral
-  # of the shortage-level function. For reporting, backorder quantity is -q2.
+
   q2_matlab <- -(alpha / (2 * (s^beta))) * ((T - t1)^2)
   q2_backorder <- -q2_matlab
-  
+
   holding_cost <- Hc * (
     ((q1 * tm) - ((alpha / (s^beta)) * ((tm^2) / 2))) +
-      ((alpha / (s^beta)) * (((t1 - tm)^2) / 2) +
-         (((gamma * lambda) / ((lambda + 1) * (lambda + 2))) *
-            ((t1^(lambda + 2)) - (tm^(lambda + 2)))) -
-         (((gamma / (lambda + 1)) * t1 * tm) *
-            ((t1^lambda) - (tm^lambda))))
+      (
+        (alpha / (s^beta)) * (((t1 - tm)^2) / 2) +
+          (
+            ((gamma * lambda) / ((lambda + 1) * (lambda + 2))) *
+              ((t1^(lambda + 2)) - (tm^(lambda + 2)))
+          ) -
+          (
+            ((gamma / (lambda + 1)) * t1 * tm) *
+              ((t1^lambda) - (tm^lambda))
+          )
+      )
   )
-  
-  deterioration_cost <- ((Dc * gamma * lambda * (alpha / (s^beta))) *
-                           (((t1^(lambda + 1)) / (lambda * (lambda + 1))) -
-                              (t1 * (tm^lambda) / lambda) +
-                              ((tm^(lambda + 1)) / (lambda + 1))))
-  
+
+  deterioration_cost <- (
+    (Dc * gamma * lambda * (alpha / (s^beta))) *
+      (
+        ((t1^(lambda + 1)) / (lambda * (lambda + 1))) -
+          (t1 * (tm^lambda) / lambda) +
+          ((tm^(lambda + 1)) / (lambda + 1))
+      )
+  )
+
   purchase_cost <- Pc * (q1 + q2_matlab)
-  
+
   shortage_cost <- Sc * (alpha / (2 * (s^beta))) * ((T - t1)^2)
-  
+
   ordering_cost <- A
-  
+
   total_cost <- (1 / T) * (
     purchase_cost +
       deterioration_cost +
@@ -70,9 +80,9 @@ crisp_model_values <- function(t1, T) {
       ordering_cost +
       shortage_cost
   )
-  
+
   Q <- q1 + q2_backorder
-  
+
   return(list(
     t1 = t1,
     T = T,
@@ -98,47 +108,47 @@ cost_function <- function(x) {
 
 numerical_gradient <- function(fn, x, h = 1e-6) {
   grad <- numeric(length(x))
-  
+
   for (i in seq_along(x)) {
     x_forward <- x
     x_backward <- x
-    
+
     x_forward[i] <- x_forward[i] + h
     x_backward[i] <- x_backward[i] - h
-    
+
     grad[i] <- (fn(x_forward) - fn(x_backward)) / (2 * h)
   }
-  
+
   return(grad)
 }
 
 numerical_hessian <- function(fn, x, h = 1e-4) {
   n <- length(x)
   H <- matrix(0, nrow = n, ncol = n)
-  
+
   for (i in 1:n) {
     for (j in 1:n) {
       x1 <- x
       x2 <- x
       x3 <- x
       x4 <- x
-      
+
       x1[i] <- x1[i] + h
       x1[j] <- x1[j] + h
-      
+
       x2[i] <- x2[i] + h
       x2[j] <- x2[j] - h
-      
+
       x3[i] <- x3[i] - h
       x3[j] <- x3[j] + h
-      
+
       x4[i] <- x4[i] - h
       x4[j] <- x4[j] - h
-      
+
       H[i, j] <- (fn(x1) - fn(x2) - fn(x3) + fn(x4)) / (4 * h^2)
     }
   }
-  
+
   return(H)
 }
 
@@ -159,12 +169,12 @@ iteration_history <- data.frame(
 for (i in 1:iterations) {
   grad <- numerical_gradient(cost_function, X)
   Hess <- numerical_hessian(cost_function, X)
-  
+
   step <- solve(Hess, grad)
   X <- X - step
-  
+
   current_values <- crisp_model_values(X[1], X[2])
-  
+
   iteration_history <- rbind(
     iteration_history,
     data.frame(
@@ -208,8 +218,22 @@ reported_result <- data.frame(
 comparison <- data.frame(
   quantity = c("t1", "T", "total_cost", "q1", "q2", "Q"),
   reported = as.numeric(reported_result[1, ]),
-  computed = as.numeric(computed_result[1, c("t1", "T", "total_cost", "q1", "q2", "Q")]),
-  difference = as.numeric(computed_result[1, c("t1", "T", "total_cost", "q1", "q2", "Q")]) -
+  computed = as.numeric(computed_result[1, c(
+    "t1",
+    "T",
+    "total_cost",
+    "q1",
+    "q2",
+    "Q"
+  )]),
+  difference = as.numeric(computed_result[1, c(
+    "t1",
+    "T",
+    "total_cost",
+    "q1",
+    "q2",
+    "Q"
+  )]) -
     as.numeric(reported_result[1, ])
 )
 
