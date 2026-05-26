@@ -22,12 +22,6 @@ tm <- 0.45
 # ------------------------------------------------------------
 # 3. Fuzzy parameter values used in MATLAB code
 # ------------------------------------------------------------
-# Note:
-# The published paper reports eta with seven values:
-# (1200,1300,1400,1500,1600,1700,1800).
-# The MATLAB code uses six values for the hexagonal fuzzy computation:
-# 1200, 1300, 1400, 1600, 1700, 1800.
-# This script follows the MATLAB code.
 
 fuzzy_parameters <- data.frame(
   alpha = c(1200, 1300, 1400, 1600, 1700, 1800),
@@ -46,35 +40,43 @@ gmir_weights <- c(1, 3, 2, 2, 3, 1) / 12
 # ------------------------------------------------------------
 
 component_cost <- function(t1, T, alpha, beta, Hc, Dc, Pc, A, Sc) {
-  
-  demand_factor <- alpha / (s^beta)
-  
   q1_component <- (alpha * tm) / (s^beta) +
-    (alpha * exp(-gamma * tm^lambda) *
-       (t1 - tm +
-          (gamma * (t1^(lambda + 1) - tm^(lambda + 1))) / (lambda + 1))) /
-    (s^beta)
-  
+    (
+      alpha * exp(-gamma * tm^lambda) *
+        (
+          t1 - tm +
+            (gamma * (t1^(lambda + 1) - tm^(lambda + 1))) / (lambda + 1)
+        )
+    ) /
+      (s^beta)
+
   purchase_part <- Pc * (
     (alpha * tm) / (s^beta) -
       (alpha * (T - t1)^2) / (2 * s^beta) +
-      (alpha * exp(-gamma * tm^lambda) *
-         (t1 - tm +
-            (gamma * (t1^(lambda + 1) - tm^(lambda + 1))) / (lambda + 1))) /
-      (s^beta)
+      (
+        alpha * exp(-gamma * tm^lambda) *
+          (
+            t1 - tm +
+              (gamma * (t1^(lambda + 1) - tm^(lambda + 1))) /
+                (lambda + 1)
+          )
+      ) /
+        (s^beta)
   )
-  
+
   holding_part <- Hc * (
     tm * q1_component -
       (alpha * tm^2) / (2 * s^beta) +
       (alpha * (t1 - tm)^2) / (2 * s^beta) -
       (gamma * t1 * tm * (t1^lambda - tm^lambda)) / (lambda + 1) +
-      (gamma * lambda * (t1^(lambda + 2) - tm^(lambda + 2))) /
-      ((lambda + 1) * (lambda + 2))
+      (
+        gamma * lambda * (t1^(lambda + 2) - tm^(lambda + 2))
+      ) /
+        ((lambda + 1) * (lambda + 2))
   )
-  
+
   shortage_part <- (Sc * alpha * (T - t1)^2) / (2 * s^beta)
-  
+
   deterioration_part <- (
     Dc * alpha * gamma * lambda *
       (
@@ -82,16 +84,18 @@ component_cost <- function(t1, T, alpha, beta, Hc, Dc, Pc, A, Sc) {
           (t1 * tm^lambda) / lambda +
           t1^(lambda + 1) / (lambda * (lambda + 1))
       )
-  ) / (s^beta)
-  
+  ) /
+    (s^beta)
+
   total_cost <- (
     A +
       purchase_part +
       holding_part +
       shortage_part +
       deterioration_part
-  ) / T
-  
+  ) /
+    T
+
   return(total_cost)
 }
 
@@ -100,10 +104,9 @@ component_cost <- function(t1, T, alpha, beta, Hc, Dc, Pc, A, Sc) {
 # ------------------------------------------------------------
 
 fuzzy_total_cost <- function(x) {
-  
   t1 <- x[1]
   T <- x[2]
-  
+
   costs <- mapply(
     component_cost,
     alpha = fuzzy_parameters$alpha,
@@ -115,9 +118,9 @@ fuzzy_total_cost <- function(x) {
     Sc = fuzzy_parameters$Sc,
     MoreArgs = list(t1 = t1, T = T)
   )
-  
+
   total <- sum(gmir_weights * costs)
-  
+
   return(total)
 }
 
@@ -127,47 +130,47 @@ fuzzy_total_cost <- function(x) {
 
 numerical_gradient <- function(fn, x, h = 1e-6) {
   grad <- numeric(length(x))
-  
+
   for (i in seq_along(x)) {
     x_forward <- x
     x_backward <- x
-    
+
     x_forward[i] <- x_forward[i] + h
     x_backward[i] <- x_backward[i] - h
-    
+
     grad[i] <- (fn(x_forward) - fn(x_backward)) / (2 * h)
   }
-  
+
   return(grad)
 }
 
 numerical_hessian <- function(fn, x, h = 1e-4) {
   n <- length(x)
   H <- matrix(0, nrow = n, ncol = n)
-  
+
   for (i in 1:n) {
     for (j in 1:n) {
       x1 <- x
       x2 <- x
       x3 <- x
       x4 <- x
-      
+
       x1[i] <- x1[i] + h
       x1[j] <- x1[j] + h
-      
+
       x2[i] <- x2[i] + h
       x2[j] <- x2[j] - h
-      
+
       x3[i] <- x3[i] - h
       x3[j] <- x3[j] + h
-      
+
       x4[i] <- x4[i] - h
       x4[j] <- x4[j] - h
-      
+
       H[i, j] <- (fn(x1) - fn(x2) - fn(x3) + fn(x4)) / (4 * h^2)
     }
   }
-  
+
   return(H)
 }
 
@@ -186,13 +189,12 @@ iteration_history <- data.frame(
 )
 
 for (i in 1:iterations) {
-  
   grad <- numerical_gradient(fuzzy_total_cost, X)
   Hess <- numerical_hessian(fuzzy_total_cost, X)
-  
+
   step <- solve(Hess, grad)
   X <- X - step
-  
+
   iteration_history <- rbind(
     iteration_history,
     data.frame(
