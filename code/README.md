@@ -4,9 +4,9 @@ This folder contains R scripts used for the fuzzy inventory model project.
 
 ## Files
 
-- `sensitivity_analysis_data.R` — enters sensitivity-analysis data, saves CSV tables, and generates PNG plots
-- `crisp_model_cost_function.R` — implements the crisp model cost function and compares computed results with the reported paper values
-- `fuzzy_model_cost_function.R` — implements the fuzzy model cost function using GMIR and compares computed results with the reported paper values
+- `sensitivity_analysis_data.R` — enters sensitivity-analysis data, saves CSV tables, and generates PNG plots.
+- `crisp_model_cost_function.R` — implements the crisp model cost function and compares computed results with reported paper values.
+- `fuzzy_model_cost_function.R` — implements the fuzzy model cost function using GMIR and compares computed results with reported fuzzy model values.
 
 ## How to Run
 
