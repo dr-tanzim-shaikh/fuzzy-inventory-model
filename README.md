@@ -1,24 +1,10 @@
 # Fuzzy Inventory Model for Deteriorating Items
 
-This repository contains a computational implementation and sensitivity analysis of a fuzzy inventory model for deteriorating items.
+This repository provides a reproducible R implementation, sensitivity analysis, and reported-vs-computed validation of a published fuzzy inventory model for deteriorating items.
 
 ## Project Aim
 
 The aim of this project is to convert an inventory model from my research work into a reproducible computational format, including numerical experimentation and graphical interpretation.
-
-## Current Project Status
-
-This repository currently includes:
-
-- conceptual model documentation,
-- parameter and numerical-data documentation,
-- R script for sensitivity-analysis data entry and plotting,
-- generated CSV output tables,
-- generated sensitivity-analysis plots,
-- crisp model cost-function implementation in R,
-- fuzzy model cost-function implementation in R,
-- reported-vs-computed comparison for crisp and fuzzy models,
-- written summary and interpretation reports.
 
 ## Key Results
 
