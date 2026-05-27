@@ -44,9 +44,11 @@ This repository includes generated CSV tables, plot images, and written reports 
 
 ### Selected Output Plots
 
-### Sensitivity Analysis Plot
+#### Sensitivity Analysis Plot
 
 ![Sensitivity analysis plot](outputs/plots/eta_GC_Q.png)
+
+*Figure: Effect of demand parameter eta on fuzzy total cost `GC(t1,T)` and total order quantity `Q`.*
 
 ### Crisp and Fuzzy Model Output Evidence
 
