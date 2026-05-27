@@ -141,11 +141,13 @@ The scripts were developed and tested using RStudio.
 
 ## Citation
 
-This repository is based on:
+If using this repository, please cite it as:
+
+Shaikh, T. S. (2026). *Fuzzy Inventory Model for Deteriorating Items: Reproducible R Implementation and Sensitivity Analysis* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.20407468
+
+This repository is a computational companion to:
 
 Shaikh, T. S., & Gite, S. P. (2024). Fuzzy Inventory Model under Selling Price Dependent Demand and Variable Deterioration with Fully Backlogged Shortages. *American Journal of Operations Research*, 14, 87–103. https://doi.org/10.4236/ajor.2024.142005
-
-If using this repository, please cite the original paper.
 
 ## Author
 
