@@ -40,7 +40,9 @@ These small differences indicate that the R implementation successfully reproduc
 
 ## Generated Outputs
 
-## Selected Output Plots
+This repository includes generated CSV tables, plot images, and written reports produced from the R scripts.
+
+### Selected Output Plots
 
 ### Sensitivity Analysis Plot
 
