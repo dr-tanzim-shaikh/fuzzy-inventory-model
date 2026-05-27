@@ -6,6 +6,8 @@ authors:
   - family-names: "Shaikh"
     given-names: "Tanzim Shahabuddin"
 year: 2026
+version: "1.0.1"
+doi: "10.5281/zenodo.20407468"
 repository-code: "https://github.com/dr-tanzim-shaikh/fuzzy-inventory-model"
 abstract: "A reproducible R implementation and sensitivity analysis of a fuzzy inventory model for deteriorating items, based on a published inventory model with crisp and fuzzy cost-function comparisons."
 keywords:
