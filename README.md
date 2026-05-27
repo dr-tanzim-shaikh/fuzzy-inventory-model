@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20407468.svg)](https://doi.org/10.5281/zenodo.20407468)
+
 # Fuzzy Inventory Model for Deteriorating Items
 
 This repository provides a reproducible R implementation, sensitivity analysis, and reported-vs-computed validation of a published fuzzy inventory model for deteriorating items.
