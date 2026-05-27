@@ -20,6 +20,24 @@ This repository currently includes:
 - reported-vs-computed comparison for crisp and fuzzy models,
 - written summary and interpretation reports.
 
+## Key Results
+
+The R implementation reproduces the reported crisp and fuzzy model results closely.
+
+### Crisp Model
+
+- Reported total cost: 245.1534
+- Computed total cost: 245.1533
+- Difference: -0.000108
+
+### Fuzzy Model
+
+- Reported fuzzy total cost: 239.4447
+- Computed fuzzy total cost: 239.44596
+- Difference: 0.001258
+
+These small differences indicate that the R implementation successfully reproduces the reported numerical results.
+
 ## Generated Outputs
 
 ## Selected Output Plots
@@ -121,6 +139,14 @@ Known source-documentation issues are recorded in `report/computational_notes.md
 - GitHub
 - Markdown
 
+## Dependencies
+
+This project uses base R functions for data handling, plotting, numerical computation, and CSV export.
+
+No external R packages are required for the current version.
+
+The scripts were developed and tested using RStudio.
+
 ## Citation
 
 This repository is based on:
@@ -133,4 +159,5 @@ If using this repository, please cite the original paper.
 
 Dr. Tanzim Shahabuddin Shaikh  
 Assistant Professor of Statistics  
-Ph.D. in Statistics, University of Mumbai
+Ph.D. in Statistics, University of Mumbai  
+Research areas: Operations Research, Inventory Modelling, Fuzzy Modelling, Applied Statistics, Statistical Modelling
