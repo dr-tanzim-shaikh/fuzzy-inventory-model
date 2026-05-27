@@ -22,6 +22,19 @@ This repository currently includes:
 
 ## Generated Outputs
 
+## Selected Output Plots
+
+### Sensitivity Analysis Plot
+
+![Sensitivity analysis plot](outputs/plots/eta_GC_Q.png)
+
+### Crisp and Fuzzy Model Output Evidence
+
+The repository includes reported-vs-computed comparison tables for both crisp and fuzzy models:
+
+- `outputs/tables/crisp_model_reported_vs_computed.csv`
+- `outputs/tables/fuzzy_model_reported_vs_computed.csv`
+
 ### CSV Tables
 
 Generated CSV files are available in:
