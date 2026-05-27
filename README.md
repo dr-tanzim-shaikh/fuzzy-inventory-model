@@ -85,10 +85,14 @@ source("code/fuzzy_model_cost_function.R")
 - Reported-vs-computed comparison for fuzzy model
 - Final technical project summary
 
-## Remaining Planned Work
+## Future Extensions
 
-- Expand the written interpretation of sensitivity-analysis results
-- Improve repository presentation for academic portfolio use
+Possible future extensions include:
+
+- expanding the interpretation of sensitivity-analysis results,
+- adding further sensitivity scenarios,
+- comparing crisp and fuzzy inventory decisions under alternative parameter assumptions,
+- developing a more general reusable R function for similar inventory models.
 
 ## Limitations
 
