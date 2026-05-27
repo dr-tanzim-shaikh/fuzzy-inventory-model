@@ -160,4 +160,8 @@ If using this repository, please cite the original paper.
 Dr. Tanzim Shahabuddin Shaikh  
 Assistant Professor of Statistics  
 Ph.D. in Statistics, University of Mumbai  
+Mumbai, India  
+
+ORCID: https://orcid.org/0009-0002-6226-387X  
+
 Research areas: Operations Research, Inventory Modelling, Fuzzy Modelling, Applied Statistics, Statistical Modelling
